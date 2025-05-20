@@ -1,14 +1,14 @@
 <template>
-    <label v-bind="attrs" :class="['block font-medium text-xl md:text-sm text-gray-700', attrs.class]">
-        <slot>{{ value }}</slot>
-    </label>
+    <p v-if="message" v-bind="attrs" :class="['text-sm text-red-600', attrs.class]">
+        {{ message }}
+    </p>
 </template>
 
 <script setup>
 import { defineProps, useAttrs } from 'vue';
 
 const props = defineProps({
-    value: String
+    message: String
 });
 
 const attrs = useAttrs();
